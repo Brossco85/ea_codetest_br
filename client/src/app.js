@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+const CaseBlocksContainer = require('./CaseBlocksContainer.jsx')
 
 
 window.onload = function(){
-  const appDiv = document.getElementById('app');
+
   ReactDOM.render(
-    <h1>Hello World</h1>, appDiv
+    <CaseBlocksContainer />, document.getElementById('app')
     );
+  
 };
