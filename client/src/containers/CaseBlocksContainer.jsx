@@ -1,5 +1,5 @@
 import React from 'react';
-const ClientInput = require('./ClientInput.jsx')
+const ClientInput = require('../components/ClientInput.jsx')
 
 
 const CaseblocksContainer =  React.createClass({
@@ -19,14 +19,15 @@ componentDidMount: function() {
   request.send();
 },
 render: function () {
+  return (
   <div >
   <h1>CaseBlocks App</h1>
   <ClientInput />
   </div>
+  )
 }
 
 
-
-
-
 })
+
+module.exports = CaseblocksContainer;
