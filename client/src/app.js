@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-const CaseBlocksContainer = require('./containers/CaseBlocksContainer.jsx')
+import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+const CaseBlocksContainer = require('./containers/CaseBlocksContainer.jsx');
 
 
-window.onload = function(){
+window.onload = () => {
 
   ReactDOM.render(
     <CaseBlocksContainer />, document.getElementById('app')

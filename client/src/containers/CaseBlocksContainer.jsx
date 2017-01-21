@@ -1,5 +1,5 @@
 import React from 'react';
-const ClientInput = require('../components/ClientInput.jsx')
+const ClientForm = require('../components/ClientForm.jsx')
 
 
 const CaseblocksContainer =  React.createClass({
@@ -22,7 +22,7 @@ render: function () {
   return (
   <div >
   <h1>CaseBlocks App</h1>
-  <ClientInput />
+  <ClientForm />
   </div>
   )
 }
