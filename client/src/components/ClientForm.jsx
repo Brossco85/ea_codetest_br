@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Route} from 'react-router';
+// import {Route} from 'react-router';
 const ClientDetail = require('../components/ClientDetail.jsx');
 
 
@@ -20,9 +20,8 @@ class ClientForm extends React.Component {
  }
 
  handleSubmit(event) {
-   alert('A name was submitted: ' + this.state.value);
    event.preventDefault();
-   ReactDOM.render(<ClientDetail />, document.getElementById('app'));
+   ReactDOM.render(<ClientDetail reference={this.state.value} />, document.getElementById('app'));
  }
 
  render() {
