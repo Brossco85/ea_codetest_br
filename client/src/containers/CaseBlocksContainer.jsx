@@ -41,6 +41,8 @@ const CaseblocksContainer =  React.createClass({
     }
     else {
       console.log("Sorry Client not found")
+      this.setState({clientName: undefined});
+      this.setState({clientEnquiries: []});
     }
     }.bind(this);
     request.send(null);
