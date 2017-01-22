@@ -6,15 +6,19 @@ const ClientBreakdown = require('../components/ClientBreakdown.jsx');
 const ClientEnquiries = function (props) {
 
   const clientNodes = props.clientDetails.map(function(clientCase, index){
+    const date = new Date(clientCase["created_at"]);
+    const createdDate = date.toDateString();
     return (
       <ClientBreakdown 
-      created={clientCase["created_at"]} key={index} enquirySource={clientCase["enquiry_source"]} message={clientCase["message"]}></ClientBreakdown>
+      created={createdDate} key={index} enquirySource={clientCase["enquiry_source"]} message={clientCase["message"]}></ClientBreakdown>
       )
   })
     return(
-      <div> 
+      <table> 
+      <tbody>
       {clientNodes}
-      </div>
+      </tbody>
+      </table>
       )
   }
 

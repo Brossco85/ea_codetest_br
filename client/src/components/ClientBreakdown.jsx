@@ -2,14 +2,14 @@ import React from 'react';
 
 const ClientBreakdown = function (props) {
 
-  console.log(props.created)
 return (
-<div>
-  <h2>{props.created}</h2>
-  <h2>{props.enquirySource}</h2>
-  <h2>{props.message}</h2>
+<tr id="enquiry">
+  <td>{props.created}</td>
+  <td>{props.enquirySource}</td>
+  <td>{props.message}</td>
+  <td><button>View</button></td>
 
-</div>
+</tr>
 
   )
 

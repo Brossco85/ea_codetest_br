@@ -22,7 +22,7 @@ class ClientForm extends React.Component {
  render() {
   return(
     <div>
-    <input type='text' placeholder="Client Reference" value={this.state.value} onChange={this.handleChange} />
+    <input type='text' placeholder="Client Reference" value={this.state.value} onChange={this.handleChange}/>
     <button type="submit"  value={this.state.value} onClick={this.props.handleClientSelected}>Enter</button>
     </div>
     )

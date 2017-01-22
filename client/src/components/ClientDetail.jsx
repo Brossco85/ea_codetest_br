@@ -3,7 +3,8 @@ import React from 'react';
 const ClientDetail = function (props) {
   return(
     <div>
-    <h1>{props.clientName}</h1>
+    <h2>Client:</h2>
+    <h3>{props.clientName}</h3>
     </div>
     )
 }

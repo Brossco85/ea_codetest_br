@@ -19,7 +19,6 @@ const CaseblocksContainer =  React.createClass({
   render: function () {
     return (
       <div >
-      <h1>CaseBlocks App</h1>
       <ClientForm  handleClientSelected={this.handleClientSelected} />
       <ClientDetail clientName={this.state.clientName} />
       <ClientEnquiries clientDetails={this.state.clientEnquiries} />
@@ -34,20 +33,25 @@ const CaseblocksContainer =  React.createClass({
     request.open('GET', url);
     request.onload = function() {
       const client = JSON.parse(request.responseText);
-      // console.log(client)
+      if (request.status === 200 && client.length > 0){
       const name =  client[1]["cases"][0]["client_name"];
       this.setState({clientName: name});
       const enquiries = client[0]["cases"];
       this.setState({clientEnquiries: enquiries});
-      console.log(enquiries)
+    }
+    else {
+      console.log("Sorry Client not found")
+    }
     }.bind(this);
     request.send(null);
   },
 
   handleClientSelected: function (event){
-    const clientReference = event.target.value;
-    this.setState({clientReference: clientReference});
-    this.getClientDetail(clientReference);
+    if(event.target.value){
+      const clientReference = event.target.value;
+      this.setState({clientReference: clientReference});
+      this.getClientDetail(clientReference);
+    }
   }
 
 
