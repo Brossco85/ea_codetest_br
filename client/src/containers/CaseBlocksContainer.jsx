@@ -16,7 +16,7 @@ const CaseblocksContainer =  React.createClass({
     }
   },
 
-  render: function () {
+  render() {
     return (
       <div >
       <ClientForm  handleClientSelected={this.handleClientSelected} />
@@ -26,7 +26,7 @@ const CaseblocksContainer =  React.createClass({
       )
   },
 
-  getClientDetail: function (clientReference) {
+  getClientDetail (clientReference) {
     const authToken = 'bDm1bzuz38bpauzzZ_-z';
     const url = `https://login.caseblocks.com/case_blocks/search?query=client_reference:${clientReference}&auth_token=${authToken}`
     const request = new XMLHttpRequest();
@@ -46,15 +46,13 @@ const CaseblocksContainer =  React.createClass({
     request.send(null);
   },
 
-  handleClientSelected: function (event){
+  handleClientSelected (event){
     if(event.target.value){
       const clientReference = event.target.value;
       this.setState({clientReference: clientReference});
       this.getClientDetail(clientReference);
     }
   }
-
-
 })
 
 module.exports = CaseblocksContainer;

@@ -13,14 +13,14 @@ const ClientEnquiries = function (props) {
       created={createdDate} key={index} enquirySource={clientCase["enquiry_source"]} message={clientCase["message"]}></ClientBreakdown>
       )
   })
-    return(
-      <table> 
-      <tbody>
-      {clientNodes}
-      </tbody>
-      </table>
-      )
-  }
+  return(
+    <table> 
+    <tbody>
+    {clientNodes}
+    </tbody>
+    </table>
+    )
+}
 
 
 module.exports = ClientEnquiries;
