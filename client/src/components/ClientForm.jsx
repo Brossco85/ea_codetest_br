@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import {Route} from 'react-router';
+import {Route} from 'react-router';
 const ClientDetail = require('../components/ClientDetail.jsx');
 
 
@@ -19,17 +19,20 @@ class ClientForm extends React.Component {
    this.setState({value: event.target.value});
  }
 
- handleSubmit(event) {
+ handleSubmit() {
    event.preventDefault();
-   ReactDOM.render(<ClientDetail reference={this.state.value} />, document.getElementById('app'));
+   this.props.handleClientSelected();
+   // ReactDOM.render(<ClientDetail reference={this.state.value} />, document.getElementById('app'));
+
  }
 
  render() {
   return(
-    <form className="client-reference" onSubmit={this.handleSubmit}>
+    // <form className="client-reference" onSubmit={this.props.handleClientSelected}>
+    <div>
     <input type='text' placeholder="Client Reference" value={this.state.value} onChange={this.handleChange} />
-    <button type="submit">Enter</button>
-    </form>
+    <button type="submit"  value={this.state.value} onClick={this.props.handleClientSelected}>Enter</button>
+</div>
     )
 }
 
