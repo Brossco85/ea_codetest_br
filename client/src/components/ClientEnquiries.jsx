@@ -1,10 +1,19 @@
 import React from 'react';
+const ClientBreakdown = require('../components/ClientBreakdown.jsx');
 
 
-var ClientEnquiries = function (props) {
+
+const ClientEnquiries = function (props) {
+
+  const clientNodes = props.clientDetails.map(function(clientCase, index){
+    return (
+      <ClientBreakdown 
+      created={clientCase["created_at"]} key={index} enquirySource={clientCase["enquiry_source"]} message={clientCase["message"]}></ClientBreakdown>
+      )
+  })
     return(
       <div> 
-      <h2>{this.props.details[0].case_type_id}</h2>
+      {clientNodes}
       </div>
       )
   }
