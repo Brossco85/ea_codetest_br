@@ -2,18 +2,21 @@ import React from 'react';
 const ClientInput = require('../components/ClientInput.jsx');
 const ClientName = require('../components/ClientName.jsx');
 const ClientEnquiries = require('../components/ClientEnquiries.jsx');
+const CaseDetail = require('../components/CaseDetail.jsx');
 
 
 
 const CaseblocksContainer =  React.createClass({
   getInitialState: function(){
-    return{clientReference: undefined, clientName: undefined, clientEnquiries: [] }
+    return{clientReference: undefined, clientName: undefined, clientEnquiries: [], showCaseDetails: undefined }
   },
 
   componentDidMount: function() {
     if (this.state.clientReference){
       this.getClientDetail(this.state.clientReference)
     }
+    
+   
   },
 
   render() {
@@ -22,7 +25,8 @@ const CaseblocksContainer =  React.createClass({
       <header className="header">Simple CaseBlocks App</header>
       <ClientInput handleClientSelected={this.handleClientSelected} />
       <ClientName clientName={this.state.clientName} />
-      <ClientEnquiries clientDetails={this.state.clientEnquiries} />
+      <ClientEnquiries clientDetails={this.state.clientEnquiries} handleCaseDetails={this.handleCaseDetails}/>
+      {this.state.showCaseDetails ? <CaseDetail caseDetails={this.state.clientEnquiries[this.state.showCaseDetails]} /> : null}
       </div>
       )
   },
@@ -39,11 +43,13 @@ const CaseblocksContainer =  React.createClass({
         this.setState({clientName: name});
         const enquiries = client[0]["cases"];
         this.setState({clientEnquiries: enquiries});
+
       }
       else {
         console.log("Sorry Client not found")
         this.setState({clientName: undefined});
         this.setState({clientEnquiries: []});
+        this.setState({showCaseDetails: undefined});
       }
     }.bind(this);
     request.send(null);
@@ -55,7 +61,15 @@ const CaseblocksContainer =  React.createClass({
       this.setState({clientReference: clientReference});
       this.getClientDetail(clientReference);
     }
+  },
+
+  handleCaseDetails (event){
+    if(event.target.value){
+      this.setState({showCaseDetails: event.target.value})
+    }
   }
+
+
 })
 
 module.exports = CaseblocksContainer;
