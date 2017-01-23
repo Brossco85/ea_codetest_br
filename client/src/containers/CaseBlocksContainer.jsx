@@ -1,7 +1,7 @@
 import React from 'react';
 const ClientInput = require('../components/ClientInput.jsx');
 const ClientName = require('../components/ClientName.jsx');
-const ClientDetail = require('../components/ClientDetail.jsx');
+const ClientEnquiries = require('../components/ClientEnquiries.jsx');
 
 
 
@@ -18,10 +18,11 @@ const CaseblocksContainer =  React.createClass({
 
   render() {
     return (
-      <div >
-      <ClientInput  handleClientSelected={this.handleClientSelected} />
+      <div className="wrapper" >
+      <header className="header">Simple CaseBlocks App</header>
+      <ClientInput handleClientSelected={this.handleClientSelected} />
       <ClientName clientName={this.state.clientName} />
-      <ClientDetail clientDetails={this.state.clientEnquiries} />
+      <ClientEnquiries clientDetails={this.state.clientEnquiries} />
       </div>
       )
   },

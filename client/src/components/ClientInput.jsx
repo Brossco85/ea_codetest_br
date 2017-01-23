@@ -21,9 +21,11 @@ class ClientInput extends React.Component {
 
  render() {
   return(
-    <div>
+    <div id="input">
     <input type='text' placeholder="Client Reference" value={this.state.value} onChange={this.handleChange}/>
+    <div>
     <button type="submit"  value={this.state.value} onClick={this.props.handleClientSelected}>Enter</button>
+    </div>
     </div>
     )
 }
@@ -31,4 +33,3 @@ class ClientInput extends React.Component {
 }
 
 module.exports = ClientInput;
-;

@@ -9,16 +9,16 @@ const ClientEnquiries = function (props) {
     const date = new Date(clientCase["created_at"]);
     const createdDate = date.toDateString();
     return (
-      <ClientBreakdown 
-      created={createdDate} key={index} enquirySource={clientCase["enquiry_source"]} message={clientCase["message"]}></ClientBreakdown>
+      <ClientDetail
+      created={createdDate} key={index} enquirySource={clientCase["enquiry_source"]} message={clientCase["message"]}>
+      </ClientDetail>
+
       )
   })
   return(
-    <table> 
-    <tbody>
+    <div id="container">
     {clientNodes}
-    </tbody>
-    </table>
+    </div>
     )
 }
 
