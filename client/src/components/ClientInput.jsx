@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Route} from 'react-router';
-const ClientDetail = require('../components/ClientDetail.jsx');
+const ClientName = require('../components/ClientName.jsx');
 
 
 
-class ClientForm extends React.Component {
+class ClientInput extends React.Component {
   constructor(props) {
    super(props);
    this.state = {value: ''};
@@ -30,4 +30,5 @@ class ClientForm extends React.Component {
 
 }
 
-module.exports = ClientForm;
+module.exports = ClientInput;
+;

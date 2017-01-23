@@ -1,7 +1,7 @@
 import React from 'react';
-const ClientForm = require('../components/ClientForm.jsx');
+const ClientInput = require('../components/ClientInput.jsx');
+const ClientName = require('../components/ClientName.jsx');
 const ClientDetail = require('../components/ClientDetail.jsx');
-const ClientEnquiries = require('../components/ClientEnquiries.jsx');
 
 
 
@@ -19,9 +19,9 @@ const CaseblocksContainer =  React.createClass({
   render() {
     return (
       <div >
-      <ClientForm  handleClientSelected={this.handleClientSelected} />
-      <ClientDetail clientName={this.state.clientName} />
-      <ClientEnquiries clientDetails={this.state.clientEnquiries} />
+      <ClientInput  handleClientSelected={this.handleClientSelected} />
+      <ClientName clientName={this.state.clientName} />
+      <ClientDetail clientDetails={this.state.clientEnquiries} />
       </div>
       )
   },
@@ -34,16 +34,16 @@ const CaseblocksContainer =  React.createClass({
     request.onload = function() {
       const client = JSON.parse(request.responseText);
       if (request.status === 200 && client.length > 0){
-      const name =  client[1]["cases"][0]["client_name"];
-      this.setState({clientName: name});
-      const enquiries = client[0]["cases"];
-      this.setState({clientEnquiries: enquiries});
-    }
-    else {
-      console.log("Sorry Client not found")
-      this.setState({clientName: undefined});
-      this.setState({clientEnquiries: []});
-    }
+        const name =  client[1]["cases"][0]["client_name"];
+        this.setState({clientName: name});
+        const enquiries = client[0]["cases"];
+        this.setState({clientEnquiries: enquiries});
+      }
+      else {
+        console.log("Sorry Client not found")
+        this.setState({clientName: undefined});
+        this.setState({clientEnquiries: []});
+      }
     }.bind(this);
     request.send(null);
   },

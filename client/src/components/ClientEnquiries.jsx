@@ -1,5 +1,5 @@
 import React from 'react';
-const ClientBreakdown = require('../components/ClientBreakdown.jsx');
+const ClientDetail = require('../components/ClientDetail.jsx');
 
 
 
