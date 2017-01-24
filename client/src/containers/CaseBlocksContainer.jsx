@@ -16,7 +16,7 @@ const CaseblocksContainer =  React.createClass({
       this.getClientDetail(this.state.clientReference)
     }
     
-   
+    
   },
 
   render() {
@@ -58,6 +58,7 @@ const CaseblocksContainer =  React.createClass({
   handleClientSelected (event){
     if(event.target.value){
       const clientReference = event.target.value;
+      this.setState({showCaseDetails: undefined});
       this.setState({clientReference: clientReference});
       this.getClientDetail(clientReference);
     }
