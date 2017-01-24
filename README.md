@@ -1,10 +1,10 @@
-# ea_codetest_br
+# EA_codetest_BR
 
 **Requirements**
 
 Node.js with NPM
 
-Technologies used
+**Technologies used**
 
 * NPM
 * webpack
